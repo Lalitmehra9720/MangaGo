@@ -96,6 +96,7 @@ const addManga = async (req, res) => {
 };
 
 const getManga = async (req, res) => {
+  
   try {
     const mangas = await Manga.find();
     res.status(200).json({success:true,mangas});

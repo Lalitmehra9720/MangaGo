@@ -16,9 +16,13 @@ const AppContextProvider = (props) => {
             if(data.success){
                 setMangas(data.mangas)
                 localStorage.setItem('mangas', JSON.stringify(data.mangas)); 
+                
+
             }else{
                 console.log(data.message)
                 toast.error(data.message)
+                
+
             }
         } catch (error) {
             console.log(error.message);
@@ -28,6 +32,8 @@ const AppContextProvider = (props) => {
     const refreshMangas = async () => {
             localStorage.removeItem('mangas'); // Clear localStorage
             await getManga(); // Fetch fresh data
+            
+
         };
     useEffect(()=>{
         getManga()

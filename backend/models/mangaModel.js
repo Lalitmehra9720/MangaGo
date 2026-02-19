@@ -1,30 +1,53 @@
+// import mongoose from "mongoose";
+
+// const mangaSchema = new mongoose.Schema({
+//     name: { type: String, required: true, unique: true },
+//     about: { type: String, required: true },
+//     banner: { type: String, required: true },
+//     type: { type: String, required: true },
+//     releasedOn: { type: String, required: true },
+//     seasons: [
+//         {
+//             season_name: { type: String, required: true },
+//             pages: []
+//         }
+//     ],
+//     views: [
+//         {
+//             userId: String,
+//             timestamp: { type: Date, default: Date.now }
+//         }
+//     ],
+//     Publisher:
+//         {
+//           type: mongoose.Schema.Types.ObjectId,
+//           ref: "user",
+//         },
+      
+// });
+
+// const Manga = mongoose.model("Manga", mangaSchema);
+// export default Manga;
+
+
 import mongoose from "mongoose";
 
-const mangaSchema = new mongoose.Schema({
-    name: { type: String, required: true, unique: true },
-    about: { type: String, required: true },
-    banner: { type: String, required: true },
-    type: { type: String, required: true },
-    releasedOn: { type: String, required: true },
-    seasons: [
-        {
-            season_name: { type: String, required: true },
-            pages: []
-        }
-    ],
-    views: [
-        {
-            userId: String,
-            timestamp: { type: Date, default: Date.now }
-        }
-    ],
-    Publisher:
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "user",
-        },
-      
-});
+const mangaSchema = new mongoose.Schema(
+  {
+    name: String,
+    about: String,
+    banner: String,
+    type: String,
+    releasedOn: String,
+    seasons: Array,
+    views: Array,
+  },
+  {
+    collection: "mangas", // ✅ FORCE correct collection
+  }
+  
+);
 
-const Manga = mongoose.model("Manga", mangaSchema);
+const Manga = mongoose.model("mangas", mangaSchema);
+
 export default Manga;
