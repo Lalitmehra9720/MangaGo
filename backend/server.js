@@ -19,9 +19,7 @@ app.use(cors({
   origin: [
     "https://manga-go-zha8.vercel.app",
     "https://manga-go-iuot.vercel.app"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
+  ]
 }));
 
 // api endpoint
